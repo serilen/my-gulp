@@ -26,6 +26,7 @@ export const path = {
 		scss: `${srcFolder}/scss/style.scss`,
 		html: `${srcFolder}/*.html`,
 		files: `${srcFolder}/files/**/*.*`,
+		svgicons: `${srcFolder}/svgicons/*.svg`,
 	},
 	//Укажем путь за какими изменениями в какой папке необходимо следить постоянно
 	watch: {
