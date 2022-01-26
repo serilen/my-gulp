@@ -1,0 +1,25 @@
+body {
+   background-color: #acac29;
+   background: url("@img/nike_product_card.jpg") 0 0 no-repeat;
+}
+
+p {
+   color: #4739c7;
+}
+
+img {
+   width: 200px;
+   height: 200px;
+}
+
+@media (max-width: 768px) {
+   p {
+      font-size: 35px;
+   }
+}
+
+@media (max-width: 768px) {
+   body {
+      padding: 45px;
+   }
+}
