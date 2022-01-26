@@ -1,9 +1,13 @@
+@import "fonts";
+
 body {
+   font-family: AlexBrush;
    background-color: #acac29;
    background: url("@img/nike_product_card.jpg") 0 0 no-repeat;
 }
 
 p {
+   font-family: Proxima;
    color: #4739c7;
 }
 
