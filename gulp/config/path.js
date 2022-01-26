@@ -1,4 +1,4 @@
-// Берем получаем доступ к исходным файлам по пути в глобальной переменной
+//Берем получаем доступ к исходным файлам по пути в глобальной переменной
 
 import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
@@ -15,7 +15,7 @@ export const path = {
 		css: `${buildFolder}/css/`,
 		html: `${buildFolder}/`,
 		images: `${buildFolder}/img/`,
-		//fonts: `${buildFolder}/fonts/`,
+		fonts: `${buildFolder}/fonts/`,
 		files: `${buildFolder}/files/`
 	},
 	src: {
