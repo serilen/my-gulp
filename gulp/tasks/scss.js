@@ -5,7 +5,6 @@ import rename from 'gulp-rename';
 import cleanCss from 'gulp-clean-css'; // Сжатие файла css
 import webpcss from 'gulp-webpcss'; // Вывод изображений Webp
 import autoprefixer from "gulp-autoprefixer"; //Добавление вендерных префиксов
-import groupCssMediaQueries from "gulp-group-css-media-queries"; //Группировка медиа-запросов
 
 
 const sass = gulpSass(dartSass);
@@ -23,7 +22,6 @@ export const scss = () => {
       .pipe(sass({
          outputStyle: 'expanded'
       }))
-      .pipe(groupCssMediaQueries())
       .pipe(webpcss({
          webpClass: ".webp",
          noWebpClass: ".no-webp"
