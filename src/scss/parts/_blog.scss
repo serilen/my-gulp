@@ -1,0 +1,121 @@
+.section-blog {
+   background-color: #b07cf7;
+   text-align: center;
+   padding: 90px 0 115px;
+   color: $color-text-light;
+   @media (max-width: $screen-md-max) {
+      padding: 40px 0;
+   }
+}
+
+.blog {
+   &__title {
+      margin-bottom: 15px;
+      @media (max-width: $screen-sm-max) {
+         font-size: 30px;
+         margin-bottom: 10px;
+      }
+   }
+
+   &__lead {
+      max-width: 570px;
+      margin: 0 auto 40px;
+      @media (max-width: $screen-sm-max) {
+         font-size: 14px;
+      }
+   }
+
+   &-wrap {
+      margin-bottom: 50px;
+
+      @media (max-width: $screen-md-max) {
+         margin-bottom: 20px;
+      }
+   }
+
+   &-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      font-weight: 700;
+      @media (max-width: $screen-md-max) {
+         margin-bottom: 30px;
+         font-size: 12px;
+      }
+
+      &:focus {
+         box-shadow: 0 0 0 2px #ee7897;
+      }
+
+      &:hover {
+         transform: scale(1.05);
+      }
+
+      &:active {
+         opacity: 0.5;
+      }
+
+      &__img {
+         width: 100%;
+      }
+
+      &__date {
+         padding: 5px 10px;
+         position: absolute;
+         top: 8.1081%;
+         left: 8.1081%;
+         background-color: rgba(0, 0, 0, 0.3);
+         font-size: 32px;
+         line-height: 1;
+         border-radius: 6px;
+         @media (max-width: $screen-md-max) {
+            font-size: 26px;
+         }
+         @media (max-width: $screen-xs-max) {
+            font-size: 20px;
+         }
+      }
+
+      &__month {
+         text-transform: uppercase;
+         font-size: 21px;
+
+         @media (max-width: $screen-xs-max) {
+            font-size: 16px;
+         }
+      }
+
+      &__info {
+         padding: 20px 15px;
+         position: absolute;
+         background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0));
+         bottom: 0;
+         left: 0;
+         text-align: left;
+         width: 100%;
+      }
+
+      &__title {
+         font-size: 20px;
+         margin-bottom: 20px;
+
+         @media (max-width: $screen-sm-max) {
+            font-size: 14px;
+         }
+
+         @media (max-width: $screen-xs-max) {
+            font-size: 16px;
+         }
+      }
+
+      &__descr {
+         font-size: 13px;
+         line-height: 2;
+         font-weight: 400;
+         @media (max-width: $screen-xs-max) {
+            font-size: 14px;
+         }
+      }
+   }
+}

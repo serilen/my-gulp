@@ -1,0 +1,33 @@
+
+.home {
+   background-color: #f9f8fb;
+   background-image: url("@img/img-header.jpg");
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding: 350px 0 75px;
+
+   @media (max-width: $screen-sm-max) {
+      background-image: none;
+      padding: 185px 0 40px 0;
+   }
+
+   &__lead {
+      margin-bottom: 290px;
+
+      @media (max-width: $screen-sm-max) {
+         margin-bottom: 80px;
+         text-align: center;
+      }
+   }
+
+   &__title {
+      margin-bottom: 10px;
+      font-size: 60px;
+      font-weight: 800;
+   }
+
+   &__description {
+      margin-bottom: 25px;
+   }
+}

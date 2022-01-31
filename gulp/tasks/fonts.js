@@ -2,6 +2,7 @@ import fs from 'fs';
 import fonter from 'gulp-fonter';
 import ttf2woff2 from 'gulp-ttf2woff2';
 
+
 export const otfToTtf = () => {
    //Ищем файлы шрифтов .otf
    return app.gulp.src(`${app.path.srcFolder}/fonts/*.otf`, {})
@@ -47,7 +48,7 @@ export const ttfToWoff = () => {
 
 //Подключение шрифтов в файл стилей css
 export const fontsStyle = () => {
-   let fontsFile = `${app.path.srcFolder}/scss/fonts.scss`;
+   let fontsFile = `${app.path.srcFolder}/scss/_fonts.scss`;
    // Проверяем существует ли файлы шрифтов
    fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
       if (fontsFiles) {

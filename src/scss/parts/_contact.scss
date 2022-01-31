@@ -1,0 +1,110 @@
+.section-contact {
+   flex: 0 1 auto;
+   background-image: url("@img/bg-contact.png");
+   background-position: center center;
+   background-size: cover;
+   padding: 90px 0 120px;
+   @media (max-width: $screen-md-max) {
+      padding: 30px 0;
+      background-image: none;
+      background-color: #ffbef4;
+   }
+}
+
+.contact {
+   &__title {
+      margin-bottom: 10px;
+      text-align: center;
+      @media (max-width: $screen-md-max) {
+         font-size: 30px;
+         margin-bottom: 10px;
+      }
+   }
+
+   &__lead {
+      max-width: 370px;
+      margin: 0 auto 35px;
+      text-align: center;
+      @media (max-width: $screen-md-max) {
+         font-size: 14px;
+      }
+   }
+
+   &__info {
+      padding-left: 70px;
+
+      @media (max-width: $screen-md-max) {
+         padding-left: 0;
+      }
+
+      &-subtitle {
+         text-transform: uppercase;
+
+         @media (max-width: $screen-sm-max) {
+            font-size: 16px;
+         }
+      }
+
+      &-text {
+         font-size: 20px;
+         text-align: left;
+         margin-bottom: 15px;
+         line-height: 1.2;
+
+         @media (max-width: $screen-sm-max) {
+            font-size: 14px;
+         }
+      }
+
+      &-link {
+         text-decoration: none;
+         color: inherit;
+
+         &:hover,
+         &:focus {
+            color: #000333;
+            text-decoration: underline;
+         }
+      }
+   }
+}
+
+.form-feedback {
+   max-width: 500px;
+   color: $color-text-light;
+   @media (max-width: $screen-md-max) {
+      margin-bottom: 30px;
+   }
+
+   &__field {
+      background-color: rgba(0, 196, 196, 0.5);
+      margin-bottom: 15px;
+      border: none;
+      border-left: 5px solid transparent;
+      width: 100%;
+
+      &:last-child {
+         margin-bottom: 15px;
+      }
+
+      &::placeholder {
+         color: $color-text-light;
+      }
+
+      &:focus {
+         border-left: 5px solid #355b82;
+         box-shadow: none;
+         background-color: rgba(0, 196, 196, 1);
+         font-weight: 700;
+      }
+
+      &:hover {
+         border-left: 5px solid #355b82;
+      }
+
+      &--fixed-width {
+         resize: vertical;
+         outline: none;
+      }
+   }
+}

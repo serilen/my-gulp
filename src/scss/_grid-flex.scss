@@ -1,0 +1,83 @@
+$map-breakpoints: (
+  xs: $screen-xs-min,
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min,
+  xlg: $screen-xlg-min,
+);
+
+$container-map: (
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min,
+  xlg: $screen-xlg-min,
+);
+
+.container {
+  width: 100%;
+  padding-right: $gutter;
+  padding-left: $gutter;
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $size, $breakpoint in $container-map {
+    @media (min-width: $breakpoint) {
+      width: $breakpoint - $gutter * 2;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+}
+
+[class*="col-"] {
+  padding-left: $gutter;
+  padding-right: $gutter;
+  min-height: 1px;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+@each $size, $breakpoint in $map-breakpoints {
+  @media (min-width: $breakpoint) {
+    @for $i from 12 through 2 {
+      .col-#{$size}-#{$i} {
+        width: calc(100% / 12) * $i;
+      }
+    }
+  }
+}
+
+@each $size, $breakpoint in $map-breakpoints {
+  @media (min-width: $breakpoint) {
+    .col-#{$size}-1 {
+      flex-basis: 100% / 12;
+      max-width: 100% / 12;
+    }
+  }
+}
+
+@each $size, $breakpoint in $map-breakpoints {
+  @media (min-width: $breakpoint) {
+    @for $i from 11 through 0 {
+      .col-#{$size}-offset-#{$i} {
+        margin-left: calc(100% / 12) * $i;
+      }
+    }
+  }
+}
+
+@each $size, $breakpoint in $map-breakpoints {
+  @media (min-width: $breakpoint) {
+    @for $i from 11 through 0 {
+      .order-#{$size}-#{$i} {
+        order: $i;
+      }
+    }
+  }
+}

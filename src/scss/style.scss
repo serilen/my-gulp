@@ -1,29 +1,10 @@
-@import "fonts";
+@import "_normalize";
 
-body {
-   font-family: AlexBrush;
-   background-color: #acac29;
-   background: url("@img/nike_product_card.jpg") 0 0 no-repeat;
-}
+@import "_variables";
+@import "_mixins";
+@import "_typography";
+@import "_grid-flex";
 
-p {
-   font-family: Proxima;
-   color: #4739c7;
-}
+@import "_general";
 
-img {
-   width: 200px;
-   height: 200px;
-}
-
-@media (max-width: 768px) {
-   p {
-      font-size: 35px;
-   }
-}
-
-@media (max-width: 768px) {
-   body {
-      padding: 45px;
-   }
-}
+@import "parts/_desk-cards";

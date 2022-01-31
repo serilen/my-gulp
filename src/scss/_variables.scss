@@ -1,0 +1,22 @@
+$gutter: 15px;
+
+//Breakpoints
+$screen-xs: 320px;
+$screen-xs-min: $screen-xs;
+
+$screen-sm: 576px;
+$screen-sm-min: $screen-sm;
+
+$screen-md: 768px;
+$screen-md-min: $screen-md;
+
+$screen-lg: 992px;
+$screen-lg-min: $screen-lg;
+
+$screen-xlg: 1200px;
+$screen-xlg-min: $screen-xlg;
+
+$screen-xs-max: ($screen-sm-min - 1px); // до 575
+$screen-sm-max: ($screen-md-min - 1px); // до 767
+$screen-md-max: ($screen-lg-min - 1px); // до 991
+$screen-lg-max: ($screen-xlg-min - 1px); // до 1199
