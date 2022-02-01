@@ -10,9 +10,11 @@ import { plugins } from "./gulp/config/plugins.js";
 //Переведем значения в глобальный объект (переменную), где хранятся пути и сущности
 
 global.app = {
-	path: path,
-	gulp: gulp,
-	plugins: plugins,
+	isBuild: process.argv.includes('--build'),
+	isDev: !process.argv.includes('--build'),
+		path: path,
+			gulp: gulp,
+				plugins: plugins,
 }
 
 //Импортируем задачи 
@@ -46,8 +48,6 @@ function watcher() {
 	gulp.watch(path.watch.images, images);
 }
 
-export { svgSprive }
-
 //Последовательная обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 //Основные задачи
@@ -55,6 +55,13 @@ const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images)
 
 //Построение сценариев выполнения задач (series - последовательно, parallel - паралельно)
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset, mainTasks);
+
+// Экспорт сценариев
+export { svgSprive }
+export { dev }
+export { build }
 
 // Выполнение сценариев по умолчанию
 gulp.task('default', dev);
+

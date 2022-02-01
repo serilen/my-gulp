@@ -16,12 +16,27 @@ export const js = () => {
             message: "Error: <%= error.message %>"
          }))
       )
-      .pipe(sourcemaps.init())
+      .pipe(
+         app.plugins.if(
+            app.isDev,
+            sourcemaps.init()
+         )
+      )
       .pipe(concat('main.js'))
       .pipe(app.gulp.dest(app.path.build.js))
       .pipe(rename({ suffix: '.min' }))
-      .pipe(terser())
-      .pipe(sourcemaps.write('./'))
+      .pipe(
+         app.plugins.if(
+            app.isBuild,
+            terser()
+         )
+      )
+      .pipe(
+         app.plugins.if(
+            app.isDev,
+            sourcemaps.write('./')
+         )
+      )
       .pipe(app.gulp.dest(app.path.build.js))
       .pipe(app.plugins.browsersync.stream());
 }

@@ -21,26 +21,55 @@ export const scss = () => {
             title: "SCSS",
             message: "Error: <%= error.message %>"
          })))
-      .pipe(sourcemaps.init())
+      .pipe(
+         app.plugins.if(
+            app.isDev,
+            sourcemaps.init()
+         )
+      )
       .pipe(sass({
          outputStyle: 'expanded'
       }))
-      .pipe(webpcss({
-         webpClass: ".webp",
-         noWebpClass: ".no-webp"
-      }))
-      .pipe(autoprefixer({
-         grid: true,
-         overrideBrowserslist: ["last 3 versions"],
-         cascade: true
-      }))
+      .pipe(
+         app.plugins.if(
+            app.isBuild,
+            autoprefixer(
+               {
+                  grid: true,
+                  overrideBrowserslist: ["last 3 versions"],
+                  cascade: true
+               }
+            )
+         )
+      )
+      .pipe(
+         app.plugins.if(
+            app.isBuild,
+            webpcss(
+               {
+                  webpClass: ".webp",
+                  noWebpClass: ".no-webp"
+               }
+            )
+         )
+      )
       .pipe(app.plugins.replace(/@img\//g, '/img/'))
       .pipe(app.gulp.dest(app.path.build.css)) //Не сжатый файл css, если не надо, то убрать или закомитить 
-      .pipe(cleanCss())
+      .pipe(
+         app.plugins.if(
+            app.isBuild,
+            cleanCss()
+         )
+      )
       .pipe(rename({
          extname: ".min.css"
       }))
-      .pipe(sourcemaps.write())
+      .pipe(
+         app.plugins.if(
+            app.isDev,
+            sourcemaps.write()
+         )
+      )
       .pipe(app.gulp.dest(app.path.build.css))
       .pipe(app.plugins.browsersync.stream());
 }
