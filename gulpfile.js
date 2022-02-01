@@ -12,32 +12,24 @@ import { plugins } from "./gulp/config/plugins.js";
 global.app = {
 	isBuild: process.argv.includes('--build'),
 	isDev: !process.argv.includes('--build'),
-		path: path,
-			gulp: gulp,
-				plugins: plugins,
+	path: path,
+	gulp: gulp,
+	plugins: plugins,
 }
 
 //Импортируем задачи 
 
 import { copy } from "./gulp/tasks/copy.js";
-gulp.task('copy', copy);
 import { reset } from "./gulp/tasks/reset.js";
-gulp.task('reset', reset);
 import { html } from "./gulp/tasks/html.js";
-gulp.task('html', html);
 import replace from "gulp-replace";
 import { server } from "./gulp/tasks/server.js";
 import { scss } from "./gulp/tasks/scss.js";
-gulp.task('scss', scss);
 import { js } from "./gulp/tasks/js.js";
-gulp.task('js', js);
 import { images } from "./gulp/tasks/images.js";
-gulp.task('images', images);
 import { otfToTtf, ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
-gulp.task('otfToTtf', otfToTtf);
-gulp.task('ttfToWoff', ttfToWoff);
-gulp.task('fontsStyle', fontsStyle);
 import { svgSprive } from "./gulp/tasks/svgSprive.js";
+import { zip } from "./gulp/tasks/zip.js";
 
 //Наблюдатель за изменениями в файлах
 function watcher() {
@@ -56,11 +48,24 @@ const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images)
 //Построение сценариев выполнения задач (series - последовательно, parallel - паралельно)
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
+const deployZIP = gulp.series(reset, mainTasks, zip);
 
 // Экспорт сценариев
 export { svgSprive }
 export { dev }
 export { build }
+export { deployZIP }
+
+//Запуск отдельных задач
+gulp.task('copy', copy);
+gulp.task('reset', reset);
+gulp.task('html', html);
+gulp.task('scss', scss);
+gulp.task('js', js);
+gulp.task('images', images);
+gulp.task('otfToTtf', otfToTtf);
+gulp.task('ttfToWoff', ttfToWoff);
+gulp.task('fontsStyle', fontsStyle);
 
 // Выполнение сценариев по умолчанию
 gulp.task('default', dev);
